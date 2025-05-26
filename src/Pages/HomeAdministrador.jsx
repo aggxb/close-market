@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import LocationContext from '../Contexts/LocationContext';
 import MarketContext from '../Contexts/MarketContext';
-import fetchCoord from '../Api/FourSquare';
+import fetchCoord from '../Api/foursquare';
 import { obterLocalizacao } from '../Services/geolocation';
 import Titulo from '../Components/Titulo';
 import Subtitulo from '../Components/Subtitulo';
@@ -199,14 +199,18 @@ const HomeAdministrador = () => {
                           name,
                         })
                       }
-                      onBlur={() =>     setErroMercado(null)}
+                      onBlur={() => setErroMercado(null)}
                       bg="c3"
                       color="c7"
                       hoverbg="c2"
                     >
                       Cadastrar Supermercado
                     </Botao>
-                    {erroMercado === fsq_id && <Paragrafo color='c10'>Esse supermercado já foi cadastrado</Paragrafo>}
+                    {erroMercado === fsq_id && (
+                      <Paragrafo color="c10">
+                        Esse supermercado já foi cadastrado
+                      </Paragrafo>
+                    )}
                   </Mercado>
                 ),
               )}
