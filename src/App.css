@@ -1,0 +1,28 @@
+:root {
+  --c1: #000814;
+  --c2: #0d1b2a;
+  --c3: #1b263b;
+  --c4: #415a77;
+  --c5: #778da9;
+  --c6: #e0e1dd;
+  --c7: #ffffff;
+  --c8: #75c9c8;
+  --c9: #ffd100;
+  --c10: #ff5e5b;
+}
+
+body {
+  background: var(--c4);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.content {
+  flex: 1;
+}

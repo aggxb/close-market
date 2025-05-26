@@ -1,0 +1,19 @@
+.rs__menu {
+  animation: abrirMenu .3s ease forwards;
+  z-index: 9999;
+}
+
+.erro-select .rs__control {
+  border: 2px solid var(--c10);
+}
+
+@keyframes abrirMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
