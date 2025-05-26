@@ -1,12 +1,20 @@
-# React + Vite
+# CloseMarket
+O CloseMarket é uma aplicação que foca em dois tipos de usuário:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 🧑🏾‍💼 Administrador:
+- Busca supermercados com base em uma coordenada. Essa coordenada pode ser informada via `input`ou por meio da API `navigator.geolocation`
+- Cadastra supermercados e seus respectivos produtos
+- Remove produtos e supermercados
+- Visualiza os supermercados cadastrados e seus respectivos produtos
 
-Currently, two official plugins are available:
+### 🧍🏾Cliente
+- Visualiza os supermercados cadastrados e seus respectivos produtos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Construído com
+CloseMarket foi Construído com as seguintes ferramentas:
+- [React](https://react.dev/) - Biblioteca JavaScript utilizada para construção de interfaces de usuário
+- [Vite](https://vitejs.dev/) - Ferramenta de build utilizada para criação do ambiente de desenvolvimento da aplicação
+- [FourSquare Places API](https://docs.foursquare.com/developer/reference/places-api-overview) - API utilizada para busca das coordenadas
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✒️ Autor
+- Gabriel Augusto Santos
