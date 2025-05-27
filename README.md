@@ -1,5 +1,5 @@
 # CloseMarket
-O CloseMarket é uma aplicação que foca em dois tipos de usuário:
+O CloseMarket é uma aplicação que permite a busca, o cadastro e a visualização de mercados (reais) e seus respectivos produtos em desconto (fictícios). Ela foca em dois tipos de usuário:
 
 ### 🧑🏾‍💼 Administrador:
 - Busca supermercados com base em uma coordenada. Essa coordenada pode ser informada via `input`ou por meio da API `navigator.geolocation`
