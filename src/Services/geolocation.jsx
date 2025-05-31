@@ -1,4 +1,4 @@
-export const obterLocalizacao = (setCoordenada, setErro, buscarCoord) => {
+export const obterLocalizacao = (setCoordenada, setErro) => {
   if (!navigator.geolocation) {
     setErro('Geolocalização não suportada');
     return;
@@ -11,7 +11,6 @@ export const obterLocalizacao = (setCoordenada, setErro, buscarCoord) => {
       const coordenadaAtual = `${latitude},${longitude}`;
 
       setCoordenada(coordenadaAtual);
-      buscarCoord();
     },
     () => {
       setErro('Não foi possível obter sua localização');

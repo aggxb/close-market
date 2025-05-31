@@ -16,6 +16,7 @@ import Paragrafo from '../Components/Paragrafo';
 import { v4 as uuidv4 } from 'uuid';
 import UserContext from '../Contexts/UserContext';
 import ProdutosCadastrados from './ProdutosCadastrados';
+import Head from '../Components/Head';
 
 const MercadoContainer = styled.section`
   display: flex;
@@ -61,7 +62,7 @@ const CadastroProdutoForm = styled.form`
     background: var(--c3);
   }
 
-   @media (max-width: 700px) {
+  @media (max-width: 700px) {
     grid-template-columns: 1fr;
   }
 `;
@@ -214,10 +215,6 @@ const CadastroMercado = () => {
     }
   }, [formDados.precoTotal, formDados.precoDesconto, formDados.taxa]);
 
-  React.useEffect(() => {
-    localStorage.setItem('mercado', JSON.stringify(mercadoSelecionado));
-  }, [mercadoSelecionado]);
-
   if (!mercadoSelecionado) return null;
 
   const { fsq_id, geocodes, location, distance, name } = mercadoSelecionado;
@@ -329,6 +326,10 @@ const CadastroMercado = () => {
 
   return (
     <>
+      <Head
+        titulo={mercadoSelecionado.name}
+        descricao={`Veja e adicione informações em ${mercadoSelecionado.name}`}
+      />
       <Header />
       <MercadoContainer>
         <Titulo>{name}</Titulo>

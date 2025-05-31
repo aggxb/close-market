@@ -17,6 +17,17 @@ const MarketProvider = ({ children }) => {
     return mercadoSelecionadoLocal ? mercadoSelecionadoLocal : null;
   });
 
+  React.useEffect(() => {
+    localStorage.setItem('mercado', JSON.stringify(mercadoSelecionado));
+  }, [mercadoSelecionado]);
+
+  React.useEffect(() => {
+    localStorage.setItem(
+      'mercados-cadastrados',
+      JSON.stringify(mercadosCadastrados),
+    );
+  }, [mercadosCadastrados]);
+
   return (
     <MarketContext.Provider
       value={{

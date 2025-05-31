@@ -18,7 +18,7 @@ const ListaProdutosContainer = ({children}) => {
 }
 
 const ListaProdutos = ({ children }) => {
-  return <StyledListaProdutos>{children}</StyledListaProdutos>;
+  return <StyledListaProdutos className='showLeft'>{children}</StyledListaProdutos>;
 };
 
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import UserProvider from './Contexts/UserProvider';
 import './App.css';
@@ -8,6 +7,7 @@ import MarketProvider from './Contexts/MarketProvider';
 import CadastroMercado from './Pages/CadastroMercado';
 import SupermercadosCadastrados from './Pages/SupermercadosCadastrados';
 import HomeAdministrador from './Pages/HomeAdministrador';
+import NaoExiste from './Pages/NaoExiste';
 
 const App = () => {
   return (
@@ -15,8 +15,8 @@ const App = () => {
       <BrowserRouter>
         <div className="content">
           <UserProvider>
-            <LocationProvider>
-              <MarketProvider>
+            <MarketProvider>
+              <LocationProvider>
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="home" element={<HomeAdministrador />} />
@@ -28,9 +28,10 @@ const App = () => {
                     path="supermercado/:id"
                     element={<CadastroMercado />}
                   />
+                  <Route path="*" element={<NaoExiste />} />
                 </Routes>
-              </MarketProvider>
-            </LocationProvider>
+              </LocationProvider>
+            </MarketProvider>
           </UserProvider>
         </div>
       </BrowserRouter>

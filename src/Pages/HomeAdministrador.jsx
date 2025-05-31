@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import LocationContext from '../Contexts/LocationContext';
 import MarketContext from '../Contexts/MarketContext';
-import fetchCoord from '../Api/foursquare';
 import { obterLocalizacao } from '../Services/geolocation';
+import Header from '../Components/Header';
 import Titulo from '../Components/Titulo';
 import Subtitulo from '../Components/Subtitulo';
 import Input from '../Components/Input';
@@ -16,7 +16,7 @@ import MercadoInfo from '../Components/MercadoInfo';
 import { FaLocationDot } from 'react-icons/fa6';
 import { FaCarSide, FaSearchLocation } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import Header from '../Components/Header';
+import Head from '../Components/Head';
 
 const CoordContainer = styled.section`
   display: flex;
@@ -30,14 +30,17 @@ const CoordBtnDiv = styled.div`
 `;
 
 const HomeAdministrador = () => {
-  const [inputCoordenada, setInputCoordenada] = React.useState('');
   const [erroMercado, setErroMercado] = React.useState(null);
-  const { coordenada, setCoordenada, setErro, erro } =
-    React.useContext(LocationContext);
+  const {
+    coordenada,
+    setCoordenada,
+    inputCoordenada,
+    setInputCoordenada,
+    setErro,
+    erro,
+  } = React.useContext(LocationContext);
   const {
     mercados,
-    setMercados,
-    mercadoSelecionado,
     setMercadoSelecionado,
     mercadosCadastrados,
     setMercadosCadastrados,
@@ -69,7 +72,7 @@ const HomeAdministrador = () => {
   };
 
   const obterLocalizacaoAtual = () => {
-    obterLocalizacao(setCoordenada, setErro, buscarCoord);
+    obterLocalizacao(setCoordenada, setErro);
   };
 
   const realizarCadastro = (mercado) => {
@@ -90,41 +93,12 @@ const HomeAdministrador = () => {
     navigate(`/supermercado/${mercado.fsq_id}`);
   };
 
-  const buscarCoord = React.useCallback(async () => {
-    try {
-      const resposta = await fetchCoord(coordenada);
-      setMercados(resposta);
-      localStorage.setItem('mercados', JSON.stringify(resposta));
-      setInputCoordenada('');
-    } catch (erro) {
-      setErro(erro.message);
-    }
-  }, [coordenada, setMercados, setErro]);
-
-  React.useEffect(() => {
-    if (coordenada) {
-      buscarCoord();
-      localStorage.setItem('coordenada', coordenada);
-    }
-  }, [coordenada, buscarCoord]);
-
-  React.useEffect(() => {
-    localStorage.setItem('coordenada', coordenada);
-  }, [coordenada]);
-
-  React.useEffect(() => {
-    localStorage.setItem('mercado', JSON.stringify(mercadoSelecionado));
-  }, [mercadoSelecionado]);
-
-  React.useEffect(() => {
-    localStorage.setItem(
-      'mercados-cadastrados',
-      JSON.stringify(mercadosCadastrados),
-    );
-  }, [mercadosCadastrados]);
-
   return (
     <>
+      <Head
+        titulo="Buscar Coordenada"
+        descricao="Busque supermercados através de uma coordenada"
+      />
       <Header />
       <CoordContainer>
         <Titulo>Coordenadas</Titulo>
@@ -166,7 +140,8 @@ const HomeAdministrador = () => {
         {mercados && (
           <>
             <Titulo margintop="2rem" marginbottom="1.5rem">
-              Supermercados disponíveis próximos à coordenada ({coordenada})
+              Supermercados disponíveis próximos à coordenada (
+              {coordenada.replace(',', ', ')})
             </Titulo>
             <ListaMercados>
               {mercados.map(

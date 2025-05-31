@@ -7,10 +7,40 @@
   border: 2px solid var(--c10);
 }
 
+.showLeft {
+  animation: showLeft .5s forwards;
+}
+
+.showDown {
+  animation: showDown .5s forwards;
+}
+
 @keyframes abrirMenu {
   from {
     opacity: 0;
     transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes showLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes showDown {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
   }
   to {
     opacity: 1;
