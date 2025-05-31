@@ -4,6 +4,7 @@ import UserContext from '../Contexts/UserContext';
 import Paragrafo from '../Components/Paragrafo';
 import LinkBotao from '../Components/LinkBotao';
 import { FaUser, FaUserTie } from 'react-icons/fa';
+import Head from '../Components/Head';
 
 const DashContainer = styled.section`
   display: flex;
@@ -34,47 +35,49 @@ const DashBtnDiv = styled.div`
 `;
 
 const Dashboard = () => {
-  const { usuario, setUsuario } = React.useContext(UserContext);
+  const { setUsuario } = React.useContext(UserContext);
 
   const handleUser = ({ target }) => {
     setUsuario(target.innerText.toLowerCase());
   };
 
-  React.useEffect(() => {
-    localStorage.setItem('usuario', usuario);
-  }, [usuario]);
-
   return (
-    <DashContainer>
-      <DashTitulo>
-        CloseMarket<span>.</span>
-      </DashTitulo>
-      <Paragrafo fontSize='2rem' style={{ marginBottom: '1rem' }}>
-        Entrar como:
-      </Paragrafo>
-      <DashBtnDiv>
-        <LinkBotao
-          to="/home"
-          onClick={handleUser}
-          bg="c1"
-          color="c6"
-          hoverbg="c3"
-        >
-          <FaUserTie color="var(--c9)" />
-          Administrador
-        </LinkBotao>
-        <LinkBotao
-          to="/supermercado"
-          onClick={handleUser}
-          bg="c1"
-          color="c6"
-          hoverbg="c3"
-        >
-          <FaUser color="var(--c9)" />
-          Cliente
-        </LinkBotao>
-      </DashBtnDiv>
-    </DashContainer>
+    <>
+      <Head
+        titulo=""
+        descricao="Busque os supermercados mais próximos da coordenada de sua escolha e adicione ou verifique produtos em promoção"
+      />
+      <DashContainer>
+        <DashTitulo>
+          CloseMarket<span>.</span>
+        </DashTitulo>
+        <Paragrafo fontSize="2rem" style={{ marginBottom: '1rem' }}>
+          Entrar como:
+        </Paragrafo>
+        <DashBtnDiv className="showDown">
+          <LinkBotao
+            to="/home"
+            onClick={handleUser}
+            bg="c1"
+            color="c6"
+            hoverbg="c3"
+          >
+            <FaUserTie color="var(--c9)" />
+            Administrador
+          </LinkBotao>
+          <LinkBotao
+            to="/supermercado"
+            onClick={handleUser}
+            bg="c1"
+            color="c6"
+            hoverbg="c3"
+          >
+            <FaUser color="var(--c9)" />
+            Cliente
+          </LinkBotao>
+        </DashBtnDiv>
+      </DashContainer>
+    </>
   );
 };
 

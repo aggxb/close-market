@@ -7,6 +7,10 @@ const UserProvider = ({ children }) => {
     return usuarioLocal ? usuarioLocal : null;
   });
 
+  React.useEffect(() => {
+    localStorage.setItem('usuario', usuario);
+  }, [usuario]);
+
   return (
     <UserContext.Provider value={{ usuario, setUsuario }}>
       {children}

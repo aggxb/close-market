@@ -11,6 +11,7 @@ import Paragrafo from '../Components/Paragrafo';
 import { useParams } from 'react-router-dom';
 import Botao from '../Components/Botao';
 import UserContext from '../Contexts/UserContext';
+import Head from '../Components/Head';
 
 const ProdutosCadastrados = () => {
   const { id } = useParams();
@@ -55,6 +56,10 @@ const ProdutosCadastrados = () => {
 
   return (
     <>
+      <Head
+        titulo={mercadoAtual.name}
+        descricao={`Veja informações de ${mercadoAtual.name}`}
+      />
       {produtos && produtos.length > 0 && (
         <ListaProdutosContainer>
           <Subtitulo fontSize="1.75rem">Produtos cadastrados</Subtitulo>

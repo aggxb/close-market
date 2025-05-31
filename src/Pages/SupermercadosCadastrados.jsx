@@ -12,6 +12,7 @@ import UserContext from '../Contexts/UserContext';
 import Header from '../Components/Header';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import Head from '../Components/Head';
 
 const MercadosBtnDiv = styled.div`
   display: flex;
@@ -35,6 +36,10 @@ const SupermercadosCadastrados = () => {
 
   return (
     <>
+      <Head
+        titulo="Supermercados Cadastrados"
+        descricao="Veja os supermercados cadastrados"
+      />
       <Header />
       <Titulo margintop="2rem" marginbottom="1.5rem">
         Supermercados Cadastrados
@@ -51,12 +56,6 @@ const SupermercadosCadastrados = () => {
                   <li>
                     <FaLocationDot color="var(--c10)" />
                     {location.formatted_address}
-                  </li>
-                  <li>
-                    <FaCarSide color="var(--c8)" />
-                    {distance.toString().length > 3
-                      ? `${distance.toLocaleString('de-DE')}km de distância`
-                      : `${distance}m de distância`}
                   </li>
                   <li>
                     <FaSearchLocation color="var(--c9)" />

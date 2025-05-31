@@ -8,7 +8,7 @@ const StyledListaMercados = styled.ul`
 
 const ListaMercados = ({children}) => {
   return (
-    <StyledListaMercados>{children}</StyledListaMercados>
+    <StyledListaMercados className='showLeft'>{children}</StyledListaMercados>
   )
 }
 

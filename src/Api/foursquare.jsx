@@ -1,4 +1,4 @@
-const fetchCoord = async (coordenada) => {
+export const fetchCoord = async (coordenada) => {
   const apiKey = import.meta.env.VITE_FOURSQUARE_API_KEY;
   const options = {
     method: 'GET',
@@ -24,5 +24,3 @@ const fetchCoord = async (coordenada) => {
 
   return json.results;
 };
-
-export default fetchCoord;
